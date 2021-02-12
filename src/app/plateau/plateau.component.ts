@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { Board_RO, C, getEmptyBoard, Turn } from '../ReversiDefinitions';
+import { Board_RO, C, getEmptyBoard, TileCoords, Turn } from '../ReversiDefinitions';
 
 @Component({
   selector: 'app-plateau',
@@ -11,14 +11,19 @@ export class PlateauComponent implements OnInit {
 	@Input() board: Board_RO = getEmptyBoard();
 	@Input() turn: Turn = "Player1";
 	@Input() playable: boolean[][] = [];
-  @Output() play = new EventEmitter<[number, number]>();
+  @Output() play = new EventEmitter<TileCoords>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  /*trackByIndex(i: number, c: C) {
+  PLAY(i: number, j: number): void {
+    this.play.emit( [i, j] );
+  }
+
+  trackByIndex(i: number, e: unknown) {
     return i;
-  }*/
+  }
 }
+

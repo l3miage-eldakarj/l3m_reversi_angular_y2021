@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ReversiGameEngineService } from './reversi-game-engine.service';
-import { GameState } from './ReversiDefinitions';
+import { GameState, TileCoords } from './ReversiDefinitions';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,8 @@ export class AppComponent {
     );
   }
 
-  play([i, j]: [number, number]) {
+  play([i, j]: TileCoords) {
     this.gs.play(i, j);
   }
+
 }
