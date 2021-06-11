@@ -1,4 +1,24 @@
+<h3>Turn : <strong style="color: red;">{{ turn }}</strong></h3>
+<h3></h3>
+
+<table class="reversi">
+  <tr *ngFor="let ligne of board; index as i; trackBy: trackByIndex" >
+    <td *ngFor="let case of ligne; index as j; trackBy: trackByIndex"
+      [class.Player1]="case==='Player1'"
+      [class.Player2]="case==='Player2'"
+      [class.Empty]="case==='Empty'"
+      [class.canPlay]="playable[i][j]"
+      (click) = "PLAY(i,j)"
+    >
+    <div></div>
+    </td>
+  </tr>
+</table>
+<!--
+
 <h2>Mon plateau!</h2>
 <p>turn = {{ turn }}</p>
 <p>board = {{ board }}</p>
 <p>playable = {{ playable }}</p>
+-->
+

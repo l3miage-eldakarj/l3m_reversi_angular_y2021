@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ReversiGameEngineService } from './reversi-game-engine.service';
 import { Component } from '@angular/core';
-import { GameState } from './ReversiDefinitions';
+import { GameState, TileCoords } from './ReversiDefinitions';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +22,12 @@ export class AppComponent {
     );
   }
 
+  newDeplacement([x, y]: TileCoords): void {
+    console.log("Attention ca publie!!");
+    console.log("Ca a publie : ",x, " ", y);
+    this.gs.play(x,y);
+
+  }
 
   /*
   //attribut calculé

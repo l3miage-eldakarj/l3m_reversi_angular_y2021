@@ -1,11 +1,15 @@
-<p>
-  Placez dans ce fichier le code de la vue (HTML enrichie)
-</p>
-<app-plateau  *ngIf="obs | async as G"
+<h1>
+  Reversi Game Angular Demo
+</h1>
+<div style="border: 2px solid;">
+  <app-plateau  *ngIf="obs | async as G"
               [board]     = "G.board"
               [turn]      = "G.turn"
               [playable]  = "G.playable"
-></app-plateau>
+              (play) = "newDeplacement($event)"
+  ></app-plateau>
+</div>
+
 <!--
 <pre>
   {{ obs | async | json }}
