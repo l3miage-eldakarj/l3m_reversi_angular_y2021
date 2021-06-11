@@ -1,4 +1,4 @@
-import { Board, C, GameState, PlayImpact, ReversiModelInterface, TileCoords, Turn } from './ReversiDefinitions';
+import { Board, C, GameState, getEmptyBoard, PlayImpact, ReversiModelInterface, TileCoords, Turn } from './ReversiDefinitions';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -23,9 +23,7 @@ export class ReversiGameEngineService implements ReversiModelInterface {
 
 
   initBoard(): void {
-      this.board = new Array(8).fill(0).map(
-                      () => new Array<C>(8).fill('Empty')
-                    ) as Board;
+      this.board = getEmptyBoard();
       this.board[3][3] = this.board[4][4] = "Player2";
       this.board[3][4] = this.board[4][3] = "Player1";
 
